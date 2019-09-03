@@ -1,0 +1,539 @@
+@import "./reset";
+@import "./parameters";
+@import "./mixins";
+
+body {
+   font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+   overflow-x: hidden;
+}
+
+// Nav
+nav {
+   width: 90%;
+   max-width: 1200px;
+   height: 10vh;
+   margin: auto;
+   display: flex;
+   align-items: center;
+
+   .logo {
+      font-size: 24px;
+      font-weight: font(bold);
+      color: #3480e3;
+      margin-right: auto;
+   }
+
+   .navbar {
+      display: flex;
+      align-items: center;
+      background: white;
+      z-index: 89;
+
+      @include tablet {
+         width: 100%;
+         height: 80vh;
+         box-shadow: 3px 0px 20px rgba(44, 52, 62, 0.18);
+         position: absolute;
+         top: 0;
+         left: 0;
+         opacity: 0;
+         transform: translateY(-100%);
+         transition: transform 0.3s ease-out;
+      }
+
+      .nav-links {
+         display: flex;
+
+         @include tablet {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            flex-direction: column;
+            justify-content: space-around;
+            height: 50vh;
+         }
+
+         .nav-link {
+            color: color(secondary);
+            font-weight: font(medium);
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            margin: 0 15px;
+
+            @include tablet {
+               font-size: 1.5rem;
+            }
+
+            &:hover {
+               color: color(primary);
+            }
+         }
+      }
+
+      .join {
+         display: flex;
+         align-items: center;
+
+         @include tablet {
+            height: 10vh;
+            align-self: flex-start;
+         }
+
+         .login {
+            margin: 0 30px 0 30px;
+            color: #000;
+            font-size: 0.9rem;
+
+            &:hover {
+               text-decoration: underline;
+            }
+         }
+
+         .signup {
+            @include button;
+            margin-top: 0;
+         }
+      }
+   }
+
+   .burger {
+      display: none;
+      cursor: pointer;
+      z-index: 90;
+
+      @include tablet {
+         display: block;
+      }
+
+      div {
+         width: 25px;
+         height: 2px;
+         margin: 5px;
+         background-color: color(secondary);
+         transition: all 0.5s ease;
+      }
+   }
+
+   .nav-active {
+      transform: translateY(0%);
+      opacity: 1;
+   }
+
+   .toggle .line1 {
+      transform: rotate(-45deg) translate(0px, 5px);
+   }
+   .toggle .line2 {
+      transform: rotate(45deg) translate(0px, -5px);
+   }
+}
+
+// Section 1
+.section-1 {
+   position: relative;
+
+   .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      @include tablet {
+         grid-template-columns: 1fr;
+      }
+
+      .get-started {
+         h1 {
+            font-size: 2.5rem;
+            font-weight: font(light);
+            color: color(primary);
+
+            @include tablet {
+               font-size: 2rem;
+
+               @include mobile {
+                  font-size: 1.5rem;
+               }
+            }
+         }
+
+         p {
+            margin-top: 10px;
+            font-weight: font(light);
+            font-size: 1.125rem;
+            color: color(secondary);
+
+            @include mobile {
+               font-size: 0.9rem;
+            }
+         }
+
+         a {
+            @include button;
+         }
+      }
+
+      img {
+         max-width: 85%;
+         height: auto;
+
+         @include tablet {
+            display: none;
+         }
+      }
+
+      .egg-shape1 {
+         position: absolute;
+         left: 0;
+         top: 90%;
+
+         @include tablet {
+            display: none;
+         }
+      }
+   }
+}
+
+//section 2
+.section-2 {
+   margin: 400px auto 0;
+   width: 90%;
+   max-width: 1200px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+
+   @include tablet {
+      margin: 200px auto 0;
+      grid-template-columns: 1fr;
+
+      @include mobile {
+         margin: 0 auto;
+      }
+   }
+
+   .card {
+      box-shadow: 0 3px 20px rgba(44, 52, 62, 0.18);
+      border-radius: 15px;
+      margin: 0 40px;
+      padding: 80px 39px 65px 40px;
+      background: #fff;
+      position: relative;
+      text-align: center;
+
+      @include tablet {
+         margin: 40px 0;
+      }
+
+      img {
+         max-width: 100%;
+         height: auto;
+      }
+
+      h2 {
+         margin: 43px 0 10px;
+         font-size: 2.25rem;
+         font-weight: font(light);
+         color: color(primary);
+         text-align: left;
+
+         @include tablet {
+            font-size: 2rem;
+
+            @include mobile {
+               font-size: 1.5rem;
+            }
+         }
+      }
+
+      p {
+         font-size: 1.125rem;
+         color: color(secondary);
+         font-weight: font(light);
+         text-align: left;
+
+         @include mobile {
+            font-size: 0.9rem;
+         }
+      }
+
+      a {
+         display: block;
+         margin-top: 20px;
+         color: color(btn);
+         text-align: left;
+
+         &:hover {
+            color: color(btn-hover);
+         }
+      }
+
+      .shape-card1 {
+         position: absolute;
+         z-index: -1;
+         right: 0;
+         bottom: 140px;
+
+         @include tablet {
+            bottom: 80px;
+
+            @include mobile {
+               display: none;
+            }
+         }
+      }
+
+      .shape-card2 {
+         position: absolute;
+         z-index: -1;
+         left: -190px;
+         top: -350px;
+
+         @include mobile {
+            top: -450px;
+         }
+      }
+   }
+}
+
+// Section 3
+.section-3 {
+   margin: 270px auto;
+   position: relative;
+   width: 90%;
+   max-width: 1200px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   justify-items: center;
+
+   @include tablet {
+      margin: 200px auto 0;
+      grid-template-columns: 1fr;
+
+      @include mobile {
+         margin: 100px auto 0;
+      }
+   }
+
+   .craft-marketing {
+      margin-left: 80px;
+
+      @include tablet {
+         margin: 40px 0;
+      }
+
+      h2 {
+         color: color(primary);
+         font-weight: font(light);
+         font-size: 2.25rem;
+
+         @include tablet {
+            font-size: 2rem;
+
+            @include mobile {
+               font-size: 1.5rem;
+            }
+         }
+      }
+
+      p {
+         margin-top: 10px;
+         font-weight: font(light);
+         font-size: 1.125rem;
+         color: color(secondary);
+
+         @include mobile {
+            font-size: 0.9rem;
+         }
+      }
+
+      a {
+         @include button;
+      }
+   }
+
+   img {
+      max-width: 100%;
+      height: auto;
+   }
+
+   .egg-shape2 {
+      position: absolute;
+      top: -150px;
+      left: -170px;
+
+      @include tablet {
+         display: none;
+      }
+   }
+}
+
+// Section 4
+.section-4 {
+   position: relative;
+   margin: 210px auto;
+   width: 90%;
+   max-width: 1200px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+   align-items: center;
+   justify-items: center;
+
+   @include tablet {
+      grid-template-columns: 1fr;
+      margin: 0 auto 100px;
+   }
+
+   .big-shape {
+      position: absolute;
+      z-index: -1;
+      left: -840px;
+      top: -685px;
+
+      @include tablet {
+         display: none;
+      }
+   }
+
+   img {
+      margin-right: 65px;
+
+      @include tablet {
+         display: none;
+      }
+   }
+
+   .support {
+      align-self: flex-start;
+
+      h2 {
+         margin-top: 50px;
+         color: color(primary);
+         font-weight: font(light);
+         font-size: 2.37rem;
+
+         @include tablet {
+            font-size: 2rem;
+
+            @include mobile {
+               font-size: 1.5rem;
+            }
+         }
+      }
+
+      p {
+         margin-top: 10px;
+         font-weight: font(light);
+         font-size: 1.125rem;
+         color: color(secondary);
+
+         @include mobile {
+            font-size: 0.9rem;
+         }
+      }
+
+      a {
+         @include button;
+      }
+   }
+
+   .egg-shape3 {
+      position: absolute;
+      left: -175px;
+      bottom: -90px;
+
+      @include tablet {
+         display: none;
+      }
+   }
+}
+
+// Footer
+.footer {
+   width: 90%;
+   max-width: 1200px;
+   margin: 50px auto;
+   display: grid;
+   grid-template-columns: 4fr 1fr 1fr 1fr;
+   grid-gap: 2rem;
+
+   @include tablet {
+      grid-template-columns: 1fr 1fr;
+
+      @include mobile {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   .rights-column {
+      @include tablet {
+         grid-row: 2 / 2;
+
+         @include mobile {
+            grid-row: 4 / 4;
+         }
+      }
+   }
+
+   .footer-column,
+   .rights-column {
+      h3 {
+         font-size: 1.0625rem;
+         font-weight: font(bold);
+         color: color(primary);
+         margin-bottom: 20px;
+      }
+
+      p {
+         color: color(secondary);
+         font-weight: font(light);
+         margin-bottom: 50px;
+
+         @include mobile {
+            font-size: 0.9rem;
+         }
+      }
+
+      ul li {
+         margin-bottom: 20px;
+
+         a {
+            color: color(secondary);
+            font-weight: font(medium);
+            transition: color 0.2s linear;
+            font-size: 0.9rem;
+
+            &:hover {
+               color: color(primary);
+            }
+         }
+      }
+   }
+
+   .contact-column {
+      h3 {
+         font-size: 1.0625rem;
+         font-weight: font(bold);
+         color: color(primary);
+         margin-bottom: 30px;
+      }
+
+      p {
+         color: color(secondary);
+         font-weight: font(light);
+         margin-bottom: 20px;
+
+         @include mobile {
+            font-size: 0.9rem;
+         }
+      }
+   }
+}

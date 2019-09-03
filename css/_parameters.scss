@@ -1,0 +1,21 @@
+$colors: (
+   primary: #2e2e2e,
+   secondary: #707070,
+   btn: #e53167,
+   btn-hover: #cd3965
+);
+
+@function color($colorName) {
+   @return map-get($colors, $colorName);
+}
+
+//font weight
+$fonts: (
+   light: 300,
+   medium: 500,
+   bold: 700
+);
+
+@function font($fontName) {
+   @return map-get($fonts, $fontName);
+}

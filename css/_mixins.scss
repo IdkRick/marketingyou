@@ -1,0 +1,27 @@
+@mixin button {
+   background: color(btn);
+   border-radius: 25px;
+   padding: 12px 30px;
+   margin-top: 30px;
+   font-size: 0.8rem;
+   display: inline-block;
+   color: white;
+   transition: all 0.3s ease;
+
+   &:hover {
+      background: color(btn-hover);
+   }
+}
+
+// Media Queries
+@mixin tablet {
+   @media (max-width: 900px) {
+      @content;
+   }
+}
+
+@mixin mobile {
+   @media (max-width: 575.98px) {
+      @content;
+   }
+}
